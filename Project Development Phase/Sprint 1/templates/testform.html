@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>CKD Prediction Form</title>
+</head>
+<body>
+    <div class="container "> 
+      <header class="header">
+        <h1 id="title">
+            Chronic Kidney Disease Prediction
+        </h1>
+        <p id="description">
+            Act early, Live longer.
+        </p>
+      </header>
+        <form action="{{ url_for('testform') }}" method="post" id="test-vitals-form">
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="text" name="age" id="age" class="formControl" placeholder="Enter your age" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="blood pressure">Blood Pressure</label>
+              <input type="text" name="blood pressure" id="blood pressure" class="formControl" placeholder="Enter your blood pressure" required>
+            </div>
+
+            <div class="form-group">
+              <label for="specific gravity">Specific Gravity</label>
+              <input type="text" name="specific gravity" id="specific gravity" class="formControl" placeholder="Enter your specific gravity" required>
+            </div>
+
+            <div class="form-group">
+              <label for="albumin">Albumin</label>
+              <input type="text" name="albumin" id="albumin" class="formControl" placeholder="Enter your albumin content" required>
+            </div>
+
+            <div class="form-group">
+              <label for="sugar">Sugar</label>
+              <input type="text" name="sugar" id="sugar" class="formControl" placeholder="Enter your sugar level" required>
+            </div>
+
+            <div class="form-group">
+              <label for="red blood cells">Red Blood Cells</label>
+              <select name="red blood cells" id="red blood cells" required type="dropdown" class="formControl">
+                  <option value="normal"selected >Normal</option>
+                  <option value="abnormal">Abnormal</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="pus cells">Pus Cells</label>
+              <select name="pus cells" id="pus cells"  required type="dropdown" class="formControl">
+                  <option value="normal"selected >Normal</option>
+                  <option value="abnormal">Abnormal</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="pus cell clumps">Pus Cell Clumps</label>
+              <select name="pus cell clumps" id="pus cell clumps" required type="dropdown" class="formControl">
+                  <option value="present"selected >Present</option>
+                  <option value="notpresent">Not Present</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="bacteria">Bacteria</label>
+              <select name="bacteria" id="bacteria" required type="dropdown" class="formControl">
+                  <option value="present"selected >Present</option>
+                  <option value="notpresent">Not Present</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="blood glucose random">Blood Glucose Random</label>
+              <input type="text" name="blood glucose random" id="blood glucose random" class="formControl" placeholder="Enter your blood glucose random level" required>
+            </div>
+
+            <div class="form-group">
+              <label for="blood urea">Blood Urea</label>
+              <input type="text" name="blood urea" id="blood urea" class="formControl" placeholder="Enter your blood urea level" required>
+            </div>
+
+            <div class="form-group">
+              <label for="serum creatinine">Serum Creatinine</label>
+              <input type="text" name="serum creatinine" id="serum creatinine" class="formControl" placeholder="Enter your serum creatinine level" required>
+            </div>
+
+            <div class="form-group">
+              <label for="sodium">Sodium</label>
+              <input type="text" name="sodium" id="sodium" class="formControl" placeholder="Enter your sodium level" required>
+            </div>
+
+            <div class="form-group">
+              <label for="potassium">Potassium</label>
+              <input type="text" name="potassium" id="potassium" class="formControl" placeholder="Enter your potassium level" required>
+            </div>
+
+            <div class="form-group">
+              <label for="hemoglobin">Hemoglobin</label>
+              <input type="text" name="hemoglobin" id="hemoglobin" class="formControl" placeholder="Enter your hemoglobin level" required>
+            </div>
+
+            <div class="form-group">
+              <label for="packed cell volume">Packed Cell Volume</label>
+              <input type="text" name="packed cell volume" id="packed cell volume" class="formControl" placeholder="Enter your packed cell volume" required>
+            </div>
+
+            <div class="form-group">
+              <label for="white blood cell count">White Blood Cell Count</label>
+              <input type="text" name="white blood cell count" id="white blood cell count" class="formControl" placeholder="Enter your white blood cell count" required>
+            </div>
+
+            <div class="form-group">
+              <label for="red blood cell count">Red Blood Cell Count</label>
+              <input type="text" name="red blood cell count" id="red blood cell count" class="formControl" placeholder="Enter your red blood cell count" required>
+            </div>
+
+            <div class="form-group">
+              <label for="hypertension">Hypertension</label>
+              <select name="hypertension" id="hypertension" required type="dropdown" class="formControl">
+                  <option value="yes"selected >Yes</option>
+                  <option value="no">No</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="diabetes mellitus">Diabetes Mellitus</label>
+              <select name="diabetes mellitus" id="diabetes mellitus" required type="dropdown" class="formControl">
+                  <option value="yes"selected >Yes</option>
+                  <option value="no">No</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="coronary artery disease">Coronary Artery Disease</label>
+              <select name="coronary artery disease" id="coronary artery disease" required type="dropdown" class="formControl">
+                  <option value="yes"selected >Yes</option>
+                  <option value="no">No</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="appetite">Appetite</label>
+              <select name="appetite" id="appetite" required type="dropdown" class="formControl">
+                  <option value="good"selected >Good</option>
+                  <option value="poor">Poor</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="pedal edema">Pedal Edema</label>
+              <select name="pedal edema" id="pedal edema" required type="dropdown" class="formControl">
+                  <option value="yes"selected >Yes</option>
+                  <option value="no">No</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="anemia">Anemia</label>
+              <select name="anemia" id="anemia" required type="dropdown" class="formControl">
+                  <option value="yes"selected >Yes</option>
+                  <option value="no">No</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" id="submit" class="btn">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
