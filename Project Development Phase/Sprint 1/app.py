@@ -4,7 +4,7 @@ from numpy import double
 
 import requests
 
-API_KEY = "VA1u35oimPA5qNkvhvGOrOjxxMcRfg8Q-mSg7TO0X0XQ"
+API_KEY = ""
 token_response = requests.post('https://iam.cloud.ibm.com/identity/token', data={"apikey":
  API_KEY, "grant_type": 'urn:ibm:params:oauth:grant-type:apikey'})
 mltoken = token_response.json()["access_token"]
@@ -12,7 +12,7 @@ mltoken = token_response.json()["access_token"]
 header = {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + mltoken}
 
 app = Flask(__name__)
-app.secret_key='thenu'
+app.secret_key=''
 
   
 @app.route('/')
