@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+
+  <title>Login</title>
+
+</head>
+
+<body>  
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('login') }}">Login</a>
+    <a href="{{ url_for('register') }}">Register</a>
+    <a href="{{ url_for('logout') }}">Log out</a>
+  </div>
+  <span style="font-size:30px;cursor:pointer;vertical-align: top;" onclick="openNav()">&#9776;</span>
+    <div class="container "> 
+      <header class="header">
+        <h1 id="title">
+            Login
+        </h1>
+      </header>
+    <form action="{{ url_for('login') }}" method="post">
+
+      <div class="form-group">
+        <label for="credential">Email / Phone Number</label>
+        <input type="text" name="credential" id="credential" placeholder="Email / Password">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Password">
+      </div>
+
+      <div>
+        <label for="captcha">Enter Captcha</label>
+        {{ captcha() }}
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="captcha" id="captcha" placeholder="Captcha">
+      </div>
+
+      <div class="form-group">
+      <button type="submit" id="login" class="btn">LOGIN</button>
+      </div>
+      
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+                <div class= "{{ category }}">
+                  <span class="closebtn">&times;</span> 
+                  <p3>
+                  {{ message }}</p3>
+                  {% endfor %}
+                </div>
+        {% endif %}
+      {% endwith %}
+      <script>
+        var close = document.getElementsByClassName("closebtn");
+        var i;
+        
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function(){
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function(){ div.style.display = "none"; }, 600);
+          }
+        }
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+        }
+      </script>
+      <div class="form-group">
+         <label for="newaccount">Don't have an account?</label>
+         <a href="{{ url_for('register') }}" class="btn">REGISTER</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>CKD Prediction Form</title>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('register') }}">Register</a>
+        <a href="{{ url_for('logout') }}">Log out</a>
+    </div>
+    <span style="font-size:30px;cursor:pointer;vertical-align: top;" onclick="openNav()">&#9776;</span>
+    <div class="container "> 
+      <header class="header">
+        <h1 id="title">
+            Chronic Kidney Disease Prediction
+        </h1>
+        <p2>
+            Act early, Live longer.
+        </p2>
+      </header>
+      <form id="test-vitals-form">
+            <div class="form-group">
+                <label1 for="ckddes">About Chronic Kidney Disease</label1>
+                <p>Chronic kidney disease, also called chronic kidney failure, involves a gradual loss of kidney function. Your kidneys filter wastes and excess fluids from your blood, which are then removed in your urine. Advanced chronic kidney disease can cause dangerous levels of fluid, electrolytes and wastes to build up in your body.</p>
+                <p>In the early stages of chronic kidney disease, you might have few signs or symptoms. You might not realize that you have kidney disease until the condition is advanced.</p>
+                <p>Treatment for chronic kidney disease focuses on slowing the progression of kidney damage, usually by controlling the cause. But, even controlling the cause might not keep kidney damage from progressing. Chronic kidney disease can progress to end-stage kidney failure, which is fatal without artificial filtering (dialysis) or a kidney transplant.</p> 
+            </div>
+
+            <div class="form-group">
+                <label1 for="symptoms">Symptoms</label1>
+                <p>Signs and symptoms of chronic kidney disease develop over time if kidney damage progresses slowly. Loss of kidney function can cause a buildup of fluid or body waste or electrolyte problems. Depending on how severe it is, loss of kidney function can cause:</p>
+                <ul>
+                    <li>Nausea</li>
+                    <li>Vomiting</li>
+                    <li>Loss of appetite</li>
+                    <li>Fatigue and weakness</li>
+                    <li>Sleep problems</li>
+                    <li>Urinating more or less</li>
+                    <li>Decreased mental sharpness</li>
+                    <li>Muscle cramps</li>
+                    <li>Swelling of feet and ankles</li>
+                    <li>Dry, itchy skin</li>
+                    <li>High blood pressure (hypertension) that's difficult to control</li>
+                    <li>Shortness of breath, if fluid builds up in the lungs</li>
+                    <li>Chest pain, if fluid builds up around the lining of the heart</li>
+                </ul>
+                <p>Signs and symptoms of kidney disease are often nonspecific. This means they can also be caused by other illnesses. Because your kidneys are able to make up for lost function, you might not develop signs and symptoms until irreversible damage has occurred.</p>
+            </div>
+
+            <div class="form-group">
+                <label1 for="testvitals">Test Vitals</label1>
+                <p>The following are the test vitals required for the prediction of Chronic Kidney Disease. You can find the values for these test vitals in urine test(urinalysis), Blood tests and Blood pressure test.</p>
+                <ul>
+                    <li>age</li>
+                    <li>blood pressure</li>
+                    <li>specific gravity</li>
+                    <li>albumin</li>
+                    <li>sugar</li>
+                    <li>red blood cells</li>
+                    <li>pus cell</li>
+                    <li>pus cell clumps</li>
+                    <li>bacteria</li>
+                    <li>blood glucose random</li>
+                    <li>blood urea</li>
+                    <li>serum creatinine</li>
+                    <li>sodium</li>
+                    <li>potassium</li>
+                    <li>hemoglobin</li>
+                    <li>packed cell volume</li>
+                    <li>white blood cell count</li>
+                    <li>red blood cell count</li>
+                    <li>hypertension</li>
+                    <li>diabetes mellitus</li>
+                    <li>coronary artery disease</li>
+                    <li>appetite</li>
+                    <li>pedal edema</li>
+                    <li>anemia</li>
+                </ul>
+                <p>Get the values for these test vitals ready before attempting the prediction for smooth experience.</p>
+                <script>
+                  function openNav() {
+                    document.getElementById("mySidenav").style.width = "250px";
+                    document.getElementById("main").style.marginLeft = "250px";
+                  }
+          
+                  function closeNav() {
+                    document.getElementById("mySidenav").style.width = "0";
+                    document.getElementById("main").style.marginLeft= "0";
+                  }
+                </script>
+                <div class="form-group">
+                    <a href="{{ url_for('testform') }}" class="btn">Attempt Prediction</a>
+                </div>
+            </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>CKD Prediction Form</title>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('register') }}">Register</a>
+        <a href="{{ url_for('logout') }}">Log out</a>
+      </div>
+      <span style="font-size:30px;cursor:pointer;vertical-align: top;" onclick="openNav()">&#9776;</span>
+    <div class="container "> 
+      <header class="header">
+        <h1 id="title">
+            Chronic Kidney Disease Prediction
+        </h1>
+        <p2>
+            Act early, Live longer.
+        </p2>
+      </header>
+      <form id="test-vitals-form">
+            <div class="form-group">
+                <label for="result">Your result is</label>
+                <p1> {{y}}</p1>
+            </div>
+            <script>
+                function openNav() {
+                  document.getElementById("mySidenav").style.width = "250px";
+                  document.getElementById("main").style.marginLeft = "250px";
+                }
+        
+                function closeNav() {
+                  document.getElementById("mySidenav").style.width = "0";
+                  document.getElementById("main").style.marginLeft= "0";
+                }
+              </script>
+      </form>
+    </div>
+</body>
+</html>
