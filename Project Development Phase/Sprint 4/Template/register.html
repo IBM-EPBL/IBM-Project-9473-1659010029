@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+  
+  <title>Register</title>
+
+</head>
+
+<body>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('login') }}">Login</a>
+    <a href="{{ url_for('register') }}">Register</a>
+    <a href="{{ url_for('logout') }}">Log out</a>
+  </div>
+  <span style="font-size:30px;cursor:pointer;vertical-align: top;" onclick="openNav()">&#9776;</span>
+  <div class="container "> 
+    <header class="header">
+      <h1 id="title">
+          Register
+      </h1>
+    </header>
+      <form action="{{ url_for('register') }}" method="post">
+  
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" placeholder="Name">
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" placeholder="Email">
+        </div>
+  
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" name="phone" id="phone" placeholder="Phone Number">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Password">
+          <p>Password should be minimum 8 characters long, have atleast a number, a special character, a lowercase letter and a uppercase letter</p>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmpassword">Confirm Password</label>
+          <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password">
+        </div>
+  
+        <div class="form-group">
+        <button type="submit" id="register" class="btn">REGISTER</button>
+        </div>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+                <div class= "{{ category }}">
+                  <span class="closebtn">&times;</span> 
+                  <p3>
+                  {{ message }}</p3>
+                  {% endfor %}
+                </div>
+        {% endif %}
+      {% endwith %}
+      <script>
+        var close = document.getElementsByClassName("closebtn");
+        var i;
+        
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function(){
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function(){ div.style.display = "none"; }, 600);
+          }
+        }
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+          
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+        }
+        </script>
+      </form>
+    </div>
+  </body>
+  
+  </html>
