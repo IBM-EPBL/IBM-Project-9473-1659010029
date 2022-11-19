@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>CKD Prediction Form</title>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('register') }}">Register</a>
+        <a href="{{ url_for('logout') }}">Log out</a>
+      </div>
+      <span style="font-size:30px;cursor:pointer;vertical-align: top;" onclick="openNav()">&#9776;</span>
+    <div class="container "> 
+      <header class="header">
+        <h1 id="title">
+            Chronic Kidney Disease Prediction
+        </h1>
+        <p2>
+            Act early, Live longer.
+        </p2>
+      </header>
+      <form id="test-vitals-form">
+            <div class="form-group">
+                <label1 for="result">Your result is</label1>
+                <p1> {{y}}</p1>
+                {% if y=="Positive" %}
+                  <label1 for="steps">Steps you should follow</label1>
+                  <p>Discuss with your friends and family, also search online to find a good nephrologist and visit them.As a first step toward diagnosis of kidney disease, your doctor discusses your personal and family history with you. Among other things, your doctor might ask questions about whether you've been diagnosed with high blood pressure, if you've taken a medication that might affect kidney function, if you've noticed changes in your urinary habits and whether you have family members who have kidney disease.</p>
+                  <p>Next, your doctor performs a physical exam, checking for signs of problems with your heart or blood vessels, and conducts a neurological exam.</p>
+                  <p>For kidney disease diagnosis, you might also need certain tests and procedures to determine how severe your kidney disease is (stage). Tests might include:</p>
+                  <ul>
+                    <li>Blood tests</li>
+                    <li>Urine tests</li>
+                    <li>Imaging tests</li>
+                    <li>Removing a sample of kidney tissue for testing</li>
+                  </ul>
+                  <label1 for="treatment">Treatment</label1>
+                  <p>Depending on the cause, some types of kidney disease can be treated. Often, though, chronic kidney disease has no cure.Treatment usually consists of measures to help control signs and symptoms, reduce complications, and slow progression of the disease. If your kidneys become severely damaged, you might need treatment for end-stage kidney disease.</p>
+                  <p>The result from this test is just a prediction. You are advised to visit a nephrologist to make sure if you have CKD and proceed with the treatment as per your doctor's advice</p>
+                {% endif %}
+                {% if y=="Negative" %}
+                  <label1 for="tips">Preventive measures</label1>
+                  <p>Chronic kidney disease (CKD) cannot always be prevented, but you can take steps to reduce the chances of getting the condition.</p>
+                  <p>Following the advice below can reduce your risk.</p>
+                  <label1 for="tip1">Manage underlying conditions</label1>
+                  <p>If you have a long-term condition that could lead to CKD, such as diabetes or high blood pressure, it's important this is managed carefully.Follow the advice of your GP, take any medicine you're prescribed and keep all appointments relating to your condition.</p>
+                  <label1>Stop smoking</label1>
+                  <p>Smoking increases your risk of cardiovascular disease, including heart attacks or strokes, which is associated with a higher risk of CKD.Stopping smoking will improve your general health and reduce your risk of these serious conditions.</p>
+                  <label1>Healthy diet</label1>
+                  <p>A healhy, balanced diet can reduce your risk of kidney disease by keeping your blood pressure and cholesterol at a healthy level.A balanced diet should include:</p>
+                  <ul>
+                    <li>plenty of fruit and vegetables,aim for at least 5 portions a day</li>
+                    <li>meals that include starchy foods, such as potatoes, wholegrain bread, rice or pasta</li>
+                    <li>some dairy or dairy alternatives</li>
+                    <li>some beans or pulses, fish, eggs, or meat as a source of protein</li>
+                    <li>low levels of saturated fat, salt and sugar</li>
+                  </ul>
+                  <label1>Manage alcohol intake</label1>
+                  <p>Drinking excessive amounts of alcohol can cause your blood pressure and cholesterol levels to rise to unhealthy levels.Sticking to the recommended alcohol limit is the best way to reduce your risk:</p>
+                  <ul>
+                    <li>men and women are advised not to regularly drink more than 14 units a week</li>
+                    <li>spread your drinking over 3 days or more if you drink as much as 14 units a week</li>
+                  </ul>
+                  <p>14 units is equivalent to 6 pints of average-strength beer or 10 small glasses of low-strength wine.</p>
+                  <label1>Exercise regularly</label1>
+                  <p>Regular exercise should help lower your blood pressure and reduce your risk of developing kidney disease.At least 150 minutes (2 hours and 30 minutes) of moderate-intensity aerobic activity, such as cycling or fast walking, every week is recommended, as well as strength exercises on 2 or more days a week that work all the major muscles (legs, hips, back, abdomen, chest, shoulders and arms).</p>
+                  <label1>Be careful with painkillers</label1>
+                  <p>Kidney disease can be caused by taking too many non-steroidal anti-inflammatories (NSAIDs), such as aspirin and ibuprofen, or taking them for longer than recommended.If you need to take painkillers, make sure you follow the instructions that come with the medicine.</p>
+                {% endif %}
+              </div>
+            <script>
+                function openNav() {
+                  document.getElementById("mySidenav").style.width = "250px";
+                  document.getElementById("main").style.marginLeft = "250px";
+                }
+        
+                function closeNav() {
+                  document.getElementById("mySidenav").style.width = "0";
+                  document.getElementById("main").style.marginLeft= "0";
+                }
+              </script>
+      </form>
+    </div>
+</body>
+</html>
